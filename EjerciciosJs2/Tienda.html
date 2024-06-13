@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tienda Virtual - Hoja de Pedido</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="Tienda.js"></script>
+         <style>
+            table, td, p{
+            text-align:center;
+            }
+            th{
+                font-size: 26pt;
+                color:#FF0000;
+                font-weight: bold;
+                height: 36;
+            }
+        </style>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF">
+ <table style="width: 75%; height: 443px; border: 1">
+  <tr>
+    <th width="42%">Tablet</th>
+    <th width="15%">Precio</th>
+    <th width="20%">Unidades</th>
+    <th width="23%">&nbsp;</th>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Samsung Galaxy TAB S2 9.7"</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>449 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades1">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+    </td>
+    <td width="23%">
+        <input type="button" name="producto1" value="A&ntilde;adir a la Compra" 
+               onClick="rellenar_cookie(1, document.getElementById('unidades1').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">AMD ATHLON 5350</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>52,10 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto2" value="A&ntilde;adir a la Compra" 
+             onClick="rellenar_cookie(2, document.getElementById('unidades2').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Monitor Acer B196Lymdr </font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>154,70 €</b></font></div></td>
+    <td width="20%">
+        <select id="unidades3">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+    </td>
+    <td width="23%">
+      <input type="button" name="producto3" value="A&ntilde;adir a la Compra" 
+             onClick="rellenar_cookie(3, document.getElementById('unidades3').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Monitor LG 22M47VQ-P</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>118,89 €</b></font></div></td>
+    <td width="20%">      
+        <select id="unidades4">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto4" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(4, document.getElementById('unidades4').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Intel Solid-State Drive DC S3610</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>479 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades5">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto5" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(5, document.getElementById('unidades5').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Toshiba Folio 100</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>308,40 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades6">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto6" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(6, document.getElementById('unidades6').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Airis OnePad</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>219 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades7">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto7" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(7, document.getElementById('unidades7').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Point of View Mobii</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>349 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades8">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto8" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(8, document.getElementById('unidades8').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Blackberry Tablet PlayBook</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>499 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades9">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto9" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(9, document.getElementById('unidades9').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Archos 7</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>199 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades10">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto10" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(10, document.getElementById('unidades10').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">HTC Flyer</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>529 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades11">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto11" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(11, document.getElementById('unidades11').value);">
+    </td>
+  </tr>
+  <tr>
+    <td width="42%"><b><font color="#33FF33">Motorola XOOM</font></b></td>
+    <td width="15%"><div align="right"><font color="#FFFF00"><b>569 €</b></font></div></td>
+    <td width="20%">       
+        <select id="unidades12">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>       
+    </td>
+    <td width="23%">
+      <input type="button" name="producto2" value="A&ntilde;adir a la Compra"  
+             onClick="rellenar_cookie(12, document.getElementById('unidades12').value);">
+    </td>
+  </tr>
+</table>
+    <p><input type="button" name="Submit13" value="Mostrar Factura" onClick="Abrir_Factura();"></p>
+    <p><u>* Precios de los productos sin Iva.</u></p>
+ </body>
+</html>

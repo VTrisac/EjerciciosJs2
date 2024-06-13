@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Factura Hoja de Pedido</title>
+        <script>
+        
+        var TParcial=0;
+        var TTotal=0;
+        var iva=0;
+
+        function contenido(datos)
+        {
+        var nombre="";
+        tamano = datos.length; //tamaño total de la cookie
+
+        for (var i=0; i<tamano; i++)
+        {
+         if (datos.charAt(i)=="@")
+          {
+           nombre= datos.substring(0,i-5);
+           unidades = datos.substring(i-3, i-1);
+           precio = datos.substring(i+2, i+9);
+          }
+        }
+        document.write("<b>"+nombre+"</b> -- "+unidades+ " -- " + precio + " €.<br>");
+        TParcial=parseFloat(unidades)*parseFloat(precio.replace(",","."));
+        document.write("<b>Total parcial producto (sin Iva):</b> " +TParcial+ " €.<hr>");
+        TTotal = TTotal + TParcial;
+        //Calculamos el total parcial por producto
+        }
+
+        function Leer_Cookie(nombre)
+        {
+        for (var i=1; i<13; i++)
+        {
+         var buscamos = nombre +i+  "=";
+         var datos;
+
+           if (document.cookie.length > 0)
+           {
+            var inicio = document.cookie.indexOf(buscamos);
+            if (inicio != -1)
+            {
+             inicio += buscamos.length;
+             fin = document.cookie.indexOf(";", inicio);
+              if (fin == -1)
+               fin = document.cookie.length;
+               datos= unescape(document.cookie.substring(inicio,fin));
+              //asignamos el valor almacenado en la cookie a una variable;
+              contenido(datos); //función que muestra un mensaje
+            }
+          }
+        }
+
+        document.write("Total de la factura (sin Iva):<b>" + TTotal + " €.</b><br>");
+        iva=(TTotal*21)/100;
+        document.write("IVA 21%: <b>" + iva.toFixed(2) + " €.</b><br>");
+        TTotal=TTotal+iva;
+        document.write("Total Factura:<b> " + TTotal.toFixed(2) + " €.</b><hr>");
+        //Una vez que recorremos las 12 posibles cookies realizamos los calculos finales de la
+        //factura
+        }
+        
+        </script>
+    </head>
+    <body onLoad="Leer_Cookie('Factura');">
+        <div>TODO write content</div>
+    </body>
+</html>

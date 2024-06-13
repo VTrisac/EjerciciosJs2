@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        //Le damos 30 días de vida a la cookie a partir de la fecha actual
+        var validez = 30;
+        var caduca = new Date();
+        caduca.setTime(caduca.getTime() + (validez*24*60*60*1000));
+        function getCookie(name)
+        {
+            //Procedimiento para leer el valor de una cookie
+            //En este ejemplo leemos un número que hemos almacenado
+            var cname = name + "=";
+            var dc = document.cookie;
+            if (dc.length > 0)
+            {
+            var begin = dc.indexOf(cname);
+            if (begin != -1)
+            {
+            begin += cname.length;
+            var end = dc.indexOf(";", begin);
+            if (end == -1) end = dc.length;
+            return unescape(dc.substring(begin, end));
+            }
+            }
+            return null;
+        }
+        function setCookie(name, value, expires)
+        {
+            //Función para crear la cookie almacenamos en ella el número de veces que
+            //hemos visitado la página
+            document.cookie = name + "=" + escape(value) +
+            ((expires == null) ? "" : "; expires=" + expires.toGMTString());
+            }
+            function Contador(){
+            //Función que cuenta el número de veces que se ha visitado la página.
+            var cuenta = getCookie("Veces");
+            //Primero leemos el valor almacenado en la cookie
+            if (cuenta== null)
+            {
+            cuenta = 0;
+            }
+            else
+            {
+            cuenta++;
+            }
+            setCookie ("Veces", cuenta, caduca);
+            //Volvemos a crear la cookie pero con el número de visita aumentado en 1
+            return cuenta+1;
+        }
+        </script>
+        </head>
+        <body>
+            <h2>Contador de visitas</h2>
+            <script>
+                var visitas = Contador();
+                //Obtendremos el número de visitas + 1 que ha realizado el usuario
+                if (visitas == 1)
+                {
+                document.write("<b>Hola, esta es la primera vez que visitas esta página.</b>");
+                }
+                else
+                document.write("<b>Hola, has visitado esta página " +visitas+ " veces.</b>");
+            </script>
+            <p>Si actualizas la página o vas a otro sitio y vuelves más tarde, comprobarás
+            cómo el contador se va incrementando.</p>
+            <p>Puedes hacer que el número de veces que has visitado una página se muestre
+            cuando se pulse un botón:</p>
+            <form>
+            <p><input type="button" name="enviar" value="contador"
+            onClick="alert('Hola, has visitado esta página ' + visitas + ' veces.')"> </p>
+            </form>
+    </body>
+</html>

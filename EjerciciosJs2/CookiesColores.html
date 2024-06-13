@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        <!--     
+        function fijaColor(sel)
+        {
+         //Almacenamos el color seleccionado la primera vez en la cookie
+          var i=0;
+          while (!(sel[i].checked))
+          i++;
+          setCookie("color", i+1, caduca);
+        }
+
+        function poneColor(pag, color)
+        {
+			   switch(color){
+                case "1":pag.document.fgColor="Black";
+                       pag.document.bgColor="White";
+                       break;
+                case "2": document.body.style.color="Blue";
+                       document.body.style.backgroundColor="Yellow";
+                       break;
+                case "3":pag.document.fgColor="Yellow";
+                        pag.document.bgColor="Black";
+                        break;
+                case "4":pag.document.fgColor="#800080";
+                        pag.document.bgColor="#FFEEEE";
+                       break;                    
+            }
+        }
+        //-->
+        </script>
+    </head>
+    <body>
+        <script>
+        <!--
+        var col=getCookie("color"); 
+        //Lo primero que hacemos es leer el valor del fondo
+        if (col != null)
+                poneColor(this, col); 
+        //Si el valor es distinto de nulo lo ponemos como fondo del documento
+        //-->
+        </script>
+        <h2>Página con colores personalizados</h2>
+        <p>Selecciona el tipo de colores que te guste más y a continuación pulsa el botón de fijar color. La página se actualiza automáticamente y verás que cambia a los colores seleccionados.</p>
+        <div align="center">
+        <table border="1" cellpadding="20">
+         <tr>
+         <td>
+<form name="formulario">
+          <p><input type="radio" name="config" checked value="1"> Página normal<br>
+             <input type="radio" name="config" value="2"> Página chillona<br>
+             <input type="radio" name="config" value="3"> Página de hacker<br>
+             <input type="radio" name="config" value="3"> Página delicada</p>
+       <div align="center"><p><input type="button" name="Fijar Color" value="Fijar Color" onClick="document.body.style.color=Blue;document.body.style.backgroundColor=Yellow;"> </p>
+       </div>
+</form>
+          </td>
+          </tr>
+        </table>
+        </div>
+        <p><font size="-2"><b>Nota:</b>Si usas Internet Explorer es posible que no se actualice automáticamente. En ese caso, pulsa el botón de la barra de navegación que dice "Actualizar" o la tecla F5.</font></p>
+    </body>
+</html>

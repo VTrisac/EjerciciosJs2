@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function Leer_Cookie(nombre)
+            {
+                var fin="";
+                var buscamos = nombre + "=";
+                if (document.cookie.length > 0)
+                {
+                    var inicio = document.cookie.indexOf(buscamos);
+                    if (inicio != -1)
+                    {
+                        inicio += buscamos.length;
+                        fin = document.cookie.indexOf(";", inicio);
+                        if (fin == -1)
+                            fin = document.cookie.length;
+                        return unescape(document.cookie.substring(inicio, fin));
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Página de Lectura de una COOKIE</h1>
+        <script>
+            document.write("<p>El valor almacenado en la Cookie es <b><u>");
+            document.write(Leer_Cookie("Hola")+"</u></b></p>");
+        </script>
+    </body>
+</html>

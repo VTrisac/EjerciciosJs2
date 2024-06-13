@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        function mostrar_mensaje(val)
+        {
+        var nombre="";
+        var fecha= new Date();
+        var hoy = new Date();
+        var dias_pasados="";
+        tamano = val.length; //tamaño total de la cookie
+
+        for (var i=0; i<tamano; i++)
+        {
+        if (val.charAt(i)=="-")
+        {
+         nombre= val.substring(0,i-2);                //restamos -2 para quitar el espacio en blanco
+         fecha = val.substring(i+2, tamano);          //el resto es la fecha del ultimo acceso
+         //la fecha la sacamos partiendo de dos posiciones del guión del nombre
+         //por el otro guión y el espacio en blanco
+        }
+        }
+         dia = fecha.substring(0,2);
+         mes = fecha.substring(3,5);
+         anyo = fecha.substring(6,10);
+         fecha = new Date(anyo,mes-1,dia);
+         //La fecha de la cookie la pasamos al orden correcto de objetos Date()
+         document.write("<h3>Hola " + nombre + ".</h3><br><br><hr>");
+
+         dias_pasados=hoy.getTime() - fecha.getTime();
+         dias_pasados=parseInt(dias_pasados/86400000)
+         //esta division nos permite obtener el numero de dias
+         document.write("<h3>Accediste a la página hace " +dias_pasados+ " día/as.</h3><br><br>");
+
+         Modificar_Cookie2(nombre); //Volvemos a crear la Cookie pero con la fecha actual
+        }
+
+        function Modificar_Cookie2(nom)
+        {
+        var nombre="Ultimavisita";
+        var valor="";
+        var val="";
+        var dia = new Date();
+        val = dia.getDate();
+
+        if (val<=9)
+        {
+        val = "0"+val; //si el dia es menor de 10 añadimos un cero
+        }
+
+        mes= dia.getMonth()+1;
+        if (mes<=9)
+        {
+        val = val+"/0"+mes; //Si el mes es menor de 10 añadimos un cero
+        }
+        else
+        {
+        valr = val+"/"+mes; //Si el mes es mayor de 9
+        }
+
+        val = val + "/" + dia.getFullYear();
+        valor = nom + " -- " + val;
+
+        fecha = new Date(2020, 12, 31);
+        document.cookie = nombre + "=" + valor + ";" + ((fecha == null) ? "" : (" expires=" + fecha.toGMTString()));
+        }
+
+        function Crear_Cookie()
+        {
+        var nombre="Ultimavisita";
+        var valor="";
+        var val="";
+        var dia = new Date();
+        val = dia.getDate(); //Alamacenará la fecha actual en formato dd/mm/aaaa
+        
+        if (val<=9)
+        {
+        val = "0"+val; //si el dia es menor de 10 añadimos un cero
+        }
+
+        mes= dia.getMonth()+1;
+        if (mes<=9)
+        {
+        val = val+"/0"+mes; //si el mes es menor de 10 añadimos un cero
+        }
+        else
+        {
+        val=val+"/"+mes; //si el mes en mayor de10
+        }
+
+        val = val + "/" + dia.getFullYear();
+
+        valor = prompt("Como te Llamas?");
+        valor = valor + " -- " + val; //Al final val tendra almacenado "nombre -- dd/mm/aaaa"
+
+        fecha = new Date(2020, 12, 31);
+        document.cookie = nombre + "=" + valor + ";" + ((fecha == null) ? "" : (" expires=" + fecha.toGMTString()));
+        }
+
+        function Leer_Cookie(nombre)
+        {
+            
+        var buscamos = nombre + "=";
+        var datos;//Variable que almacenara el nombre y fecha de la cookie
+        if (document.cookie.length > 0)
+        {
+        var inicio = document.cookie.indexOf(buscamos);        
+          if (inicio != -1)
+          {
+              
+            inicio += buscamos.length;
+            fin = document.cookie.indexOf(";", inicio);
+            if (fin == -1)
+              fin = document.cookie.length;
+              datos= unescape(document.cookie.substring(inicio,fin));
+              //asignamos el valor almacenado en la cookie a una variable;
+              mostrar_mensaje(datos); //función que muestra un mensaje
+          }
+          else
+          {
+              //Existe una cookie creada por el Editor NetBeans pero no tiene almacenado
+              //la cookie con ultima visita
+              alert("Es la primera vez que nos visitas?");
+              Crear_Cookie();
+              alert("Pulsa F5 para recargar la página");
+          }
+        }
+        else
+        {
+        //La cookie no existe por lo que debemos crearla
+        alert("Es la primera vez que nos visitas?");
+        Crear_Cookie();
+        alert("Pulsa F5 para recargar la página");
+        }
+        }
+        //-->
+        </script>
+    </head>
+    <body onLoad="Leer_Cookie('Ultimavisita')">
+    </body>
+</html>

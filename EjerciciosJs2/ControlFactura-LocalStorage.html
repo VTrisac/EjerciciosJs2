@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Factura Hoja de Pedido</title>
+        <script>
+        
+        var TParcial=0;
+        var TTotal=0;
+        var iva=0;
+
+        function leer(){ 
+            var salto=0;
+            var compras = localStorage.getItem("Listacompra");
+            
+            let arr = compras.split(';'); 
+            //FUNCIÓN NUEVA!!!! No vista en el curso
+            //Esta función split de PROTOTYPE permite de forma rápida cortar un string
+            //y crear un array directamente usando el separador que se indique, nos 
+            //evita tener que ir recorriendo con un bucle ; por ; el string y sacar el 
+            //texto para almacenarlo después en una variable o en un array.
+
+            for (var i=0; i < arr.length; i=i+3) {            
+                /*saltamos dentro del array de 3 en tres posiciones ya que leemos
+                 * del tirón nombre, unidades, precio*/
+                  if (arr[i]==""){
+                      break;  /*cuando llege al último ; se pare el bucle*/
+                  }
+                  nombre=arr[i];      
+                  unidades=arr[i+1];      
+                  precio=arr[i+2];
+
+                  document.write("<b>"+nombre+"</b> -- "+unidades+ " -- " + precio + " €.<br>");
+                  TParcial=parseFloat(unidades)*parseFloat(precio.replace(",","."));
+                  document.write("<b>Total parcial producto (sin Iva):</b> " +TParcial+ " €.<hr>");
+                  TTotal = TTotal + TParcial;
+
+            }
+        //Después de mostrar todos los productos, unidades y precios cálculamos el total 
+        //de la factura
+        document.write("Total de la factura (sin Iva):<b>" + TTotal + " €.</b><br>");
+        iva=(TTotal*21)/100;
+        document.write("IVA 21%: <b>" + iva.toFixed(2) + " €.</b><br>");
+        TTotal=TTotal+iva;
+        document.write("Total Factura:<b> " + TTotal.toFixed(2) + " €.</b><hr>");
+        
+    
+}       
+        </script>
+    </head>
+    <body onLoad="leer();">
+        
+    </body>
+</html>

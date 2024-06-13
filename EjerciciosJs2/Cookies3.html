@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function Borrar_nuevo(){
+                var exp = new Date();
+                exp.setTime(exp.getTime()-1);
+                var name= "Hola";
+                var cval=" ";
+                document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+                alert("Cookie borrada, abra la página Cookies2.html para comprobarlo");
+            }
+        </script>
+    </head>
+<body>
+   <h1>Página de eliminación de Cookies.</h1>
+    <p>Pulse ahora el botón para eliminar la cookie creada anteriormente <b>Hola</b> <input type="button" name="Boton"
+    onClick="Borrar_nuevo()" value="BORRAR"> 
+</body>
+</html>
